@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QGridLayout>
+#include <QVBoxLayout>
+#include <QHBoxLayout>
 #include <QPushButton>
 #include <QComboBox>
 #include <QLabel>
@@ -21,7 +24,6 @@ class MainWindow : public QMainWindow {
 
 public:
     MainWindow(QWidget *parent = nullptr);
-    //~MainWindow();
 
 private slots:
     void handleButtonClick();
@@ -30,6 +32,7 @@ private slots:
     void handleHistoryClick(QListWidgetItem *item);
     void showGameHistory();
     void startNewGame();
+    void logout(); // New logout slot
 
 private:
     Ui::MainWindow *ui;
@@ -42,12 +45,15 @@ private:
     QToolBar* mainToolBar;
     QAction* historyAction;
     QAction* newGameAction;
+    QAction* logoutAction; // New logout action
+
     Board board;
     AIPlayer ai;
     char currentPlayer;
     int mode;
     bool gameOver;
     QString currentUser;
+    QString player2User; // For two-player mode
     QVector<QString> moveHistory;
 
     void updateButton(int row, int col);

@@ -13,39 +13,38 @@ find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
 find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    Board.h
+    Board.cpp
+    AIPlayer.h
+    AIPlayer.cpp
+    LoginDialog.h
+    LoginDialog.cpp
+)
+
+set(PROJECT_RESOURCES
+    resources.qrc
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(Project
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
-        Board.h
-        AIPlayer.h
-
-        AIPlayer.cpp
-        Board.cpp
-        LoginDialog.cpp
-        LoginDialog.h
-
+        ${PROJECT_RESOURCES}
     )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
 else()
     if(ANDROID)
         add_library(Project SHARED
             ${PROJECT_SOURCES}
+            ${PROJECT_RESOURCES}
         )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
     else()
         add_executable(Project
             ${PROJECT_SOURCES}
+            ${PROJECT_RESOURCES}
         )
     endif()
 endif()
@@ -58,6 +57,7 @@ target_link_libraries(Project PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 if(${QT_VERSION} VERSION_LESS 6.1.0)
   set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Project)
 endif()
+
 set_target_properties(Project PROPERTIES
     ${BUNDLE_ID_OPTION}
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
