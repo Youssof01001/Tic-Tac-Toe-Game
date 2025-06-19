@@ -1,9 +1,0 @@
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Project.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/edit_cache.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/rebuild_cache.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/list_install_components.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/local.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/install/strip.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Project_autogen_timestamp_deps.dir
-C:/Users/youssef/Desktop/Embedded_Project/Game_App/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/Project_autogen.dir
