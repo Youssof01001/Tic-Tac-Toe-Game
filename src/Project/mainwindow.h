@@ -24,6 +24,7 @@ public:
     //~MainWindow();
 
 private slots:
+    void logout();
     void handleButtonClick();
     void handleModeChange(int index);
     void resetGame();
@@ -42,6 +43,7 @@ private:
     QToolBar* mainToolBar;
     QAction* historyAction;
     QAction* newGameAction;
+    QAction* logoutAction;
     Board board;
     AIPlayer ai;
     char currentPlayer;
@@ -58,6 +60,7 @@ private:
     void authenticateUser();
     void saveGameRecord(QString winner);
     void loadGameHistory();
+    void resizeEvent(QResizeEvent *event);
 };
 
 #endif // MAINWINDOW_H

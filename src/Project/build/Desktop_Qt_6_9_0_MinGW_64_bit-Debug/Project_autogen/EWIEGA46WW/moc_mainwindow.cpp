@@ -40,8 +40,9 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     namespace QMC = QtMocConstants;
     QtMocHelpers::StringRefStorage qt_stringData {
         "MainWindow",
-        "handleButtonClick",
+        "logout",
         "",
+        "handleButtonClick",
         "handleModeChange",
         "index",
         "resetGame",
@@ -53,22 +54,24 @@ template <> constexpr inline auto MainWindow::qt_create_metaobjectdata<qt_meta_t
     };
 
     QtMocHelpers::UintData qt_methods {
-        // Slot 'handleButtonClick'
+        // Slot 'logout'
         QtMocHelpers::SlotData<void()>(1, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'handleButtonClick'
+        QtMocHelpers::SlotData<void()>(3, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'handleModeChange'
-        QtMocHelpers::SlotData<void(int)>(3, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { QMetaType::Int, 4 },
+        QtMocHelpers::SlotData<void(int)>(4, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { QMetaType::Int, 5 },
         }}),
         // Slot 'resetGame'
-        QtMocHelpers::SlotData<void()>(5, 2, QMC::AccessPrivate, QMetaType::Void),
+        QtMocHelpers::SlotData<void()>(6, 2, QMC::AccessPrivate, QMetaType::Void),
         // Slot 'handleHistoryClick'
-        QtMocHelpers::SlotData<void(QListWidgetItem *)>(6, 2, QMC::AccessPrivate, QMetaType::Void, {{
-            { 0x80000000 | 7, 8 },
+        QtMocHelpers::SlotData<void(QListWidgetItem *)>(7, 2, QMC::AccessPrivate, QMetaType::Void, {{
+            { 0x80000000 | 8, 9 },
         }}),
         // Slot 'showGameHistory'
-        QtMocHelpers::SlotData<void()>(9, 2, QMC::AccessPrivate, QMetaType::Void),
-        // Slot 'startNewGame'
         QtMocHelpers::SlotData<void()>(10, 2, QMC::AccessPrivate, QMetaType::Void),
+        // Slot 'startNewGame'
+        QtMocHelpers::SlotData<void()>(11, 2, QMC::AccessPrivate, QMetaType::Void),
     };
     QtMocHelpers::UintData qt_properties {
     };
@@ -92,12 +95,13 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
     auto *_t = static_cast<MainWindow *>(_o);
     if (_c == QMetaObject::InvokeMetaMethod) {
         switch (_id) {
-        case 0: _t->handleButtonClick(); break;
-        case 1: _t->handleModeChange((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 2: _t->resetGame(); break;
-        case 3: _t->handleHistoryClick((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
-        case 4: _t->showGameHistory(); break;
-        case 5: _t->startNewGame(); break;
+        case 0: _t->logout(); break;
+        case 1: _t->handleButtonClick(); break;
+        case 2: _t->handleModeChange((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 3: _t->resetGame(); break;
+        case 4: _t->handleHistoryClick((*reinterpret_cast< std::add_pointer_t<QListWidgetItem*>>(_a[1]))); break;
+        case 5: _t->showGameHistory(); break;
+        case 6: _t->startNewGame(); break;
         default: ;
         }
     }
@@ -122,14 +126,14 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 6)
+        if (_id < 7)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 6;
+        _id -= 7;
     }
     if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 6)
+        if (_id < 7)
             *reinterpret_cast<QMetaType *>(_a[0]) = QMetaType();
-        _id -= 6;
+        _id -= 7;
     }
     return _id;
 }

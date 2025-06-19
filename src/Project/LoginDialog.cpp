@@ -14,8 +14,8 @@ LoginDialog::LoginDialog(QWidget *parent)
     resize(1400, 900);
 
     // Load and set background image
-    QPixmap background("C:/Users/hp/Downloads/image/A.PNG");
-    qDebug() << "Image loaded?" << !background.isNull();
+    QPixmap background("C:/Users/hp/Downloads/image/login_bg");
+    //qDebug() << "Image loaded?" << !background.isNull();
     background = background.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
     QPalette palette;
@@ -124,8 +124,8 @@ void LoginDialog::handleRegisterClicked() {
 
 void LoginDialog::resizeEvent(QResizeEvent* event)
 {
-    QPixmap background("C:/Users/hp/Downloads/image/A.PNG");
-    qDebug() << "Image loaded?" << !background.isNull();
+    QPixmap background("C:/Users/hp/Downloads/image/login_bg");
+   // qDebug() << "Image loaded?" << !background.isNull();
     background = background.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 
     QPalette palette;

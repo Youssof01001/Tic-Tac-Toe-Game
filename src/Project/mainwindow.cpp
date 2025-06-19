@@ -1,4 +1,4 @@
-#include "mainwindow.h"
+ #include "mainwindow.h"
 #include "LoginDialog.h"
 #include <QVBoxLayout>
 #include <QGridLayout>
@@ -15,6 +15,7 @@
 #include <QListWidget>
 #include <QPushButton>
 #include <QHBoxLayout>
+#include <QApplication>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent), currentPlayer('X'), mode(1), gameOver(false) {
@@ -68,6 +69,17 @@ void MainWindow::authenticateUser() {
 }
 
 void MainWindow::setupUI() {
+    QPixmap background("C:/Users/hp/Downloads/image/game_bg");
+    // qDebug() << "Image loaded?" << !background.isNull();
+    background = background.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+
+    QPalette palette;
+    palette.setBrush(QPalette::Window, background);
+    this->setAutoFillBackground(true);
+    this->setPalette(palette);
+    setFixedSize(1400, 900);
+
+
     QWidget *central = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout(central);
 
@@ -76,6 +88,10 @@ void MainWindow::setupUI() {
     newGameAction = new QAction("New Game", this);
     mainToolBar->addAction(historyAction);
     mainToolBar->addAction(newGameAction);
+    logoutAction = new QAction("Logout", this);
+    mainToolBar->addAction(logoutAction);
+    connect(logoutAction, &QAction::triggered, this, &MainWindow::logout);
+
     connect(historyAction, &QAction::triggered, this, &MainWindow::showGameHistory);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::startNewGame);
 
@@ -402,6 +418,15 @@ void MainWindow::authenticateUser() {
 }
 
 void MainWindow::setupUI() {
+    QPixmap background("C:/Users/hp/Downloads/image/A.PNG");
+    // qDebug() << "Image loaded?" << !background.isNull();
+    background = background.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+
+    QPalette palette;
+    palette.setBrush(QPalette::Window, background);
+    this->setAutoFillBackground(true);
+    this->setPalette(palette);
+
     QWidget *central = new QWidget(this);
     QVBoxLayout *mainLayout = new QVBoxLayout(central);
 
@@ -410,6 +435,10 @@ void MainWindow::setupUI() {
     newGameAction = new QAction("New Game", this);
     mainToolBar->addAction(historyAction);
     mainToolBar->addAction(newGameAction);
+    logoutAction = new QAction("Logout", this);
+    mainToolBar->addAction(logoutAction);
+    connect(logoutAction, &QAction::triggered, this, &MainWindow::logout);
+
     connect(historyAction, &QAction::triggered, this, &MainWindow::showGameHistory);
     connect(newGameAction, &QAction::triggered, this, &MainWindow::startNewGame);
 
@@ -656,3 +685,25 @@ void MainWindow::startNewGame() {
     resetGame();
 }
 */
+
+
+void MainWindow::logout() {
+    this->hide();
+    LoginDialog loginDialog;
+    if (loginDialog.exec() == QDialog::Accepted) {
+        this->show();
+    } else {
+        QApplication::quit();
+    }
+}
+
+
+void MainWindow::resizeEvent(QResizeEvent *event) {
+    QMainWindow::resizeEvent(event);
+
+    QPixmap background("C:/Users/hp/Downloads/image/game_bg");
+    background = background.scaled(this->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+    QPalette palette;
+    palette.setBrush(QPalette::Window, background);
+    this->setPalette(palette);
+}
