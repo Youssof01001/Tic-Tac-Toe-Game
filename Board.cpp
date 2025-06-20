@@ -15,6 +15,27 @@ bool Board::makeMove(int row, int col, char player) {
     return false;
 }
 
+void Board::reset()  // Implementation of reset method
+{
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            board[i][j] = ' ';
+        }
+    }
+}
+
+bool Board::isFull() const  // Implementation of isFull method
+{
+    for (int i = 0; i < 3; ++i) {
+        for (int j = 0; j < 3; ++j) {
+            if (board[i][j] == ' ') {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
 bool Board::checkWin(char player) const {
     for (int i = 0; i < 3; ++i)
         if ((board[i][0] == player && board[i][1] == player && board[i][2] == player) ||
@@ -59,4 +80,8 @@ char Board::getCell(int row, int col) const {
 
 void Board::setCell(int row, int col, char value) {
     board[row][col] = value;
+}
+
+bool Board::isCellEmpty(int row, int col){
+    return (board[row][col] == ' ');
 }

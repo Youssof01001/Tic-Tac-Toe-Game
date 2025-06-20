@@ -1,78 +1,86 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
 
-project(Project VERSION 0.1 LANGUAGES CXX)
+project(TicTacToe VERSION 0.1 LANGUAGES CXX)
 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
+# ---------------- Global C++ Settings ----------------
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+# ---------------- Qt Configuration ----------------
+find_package(Qt6 REQUIRED COMPONENTS Widgets)
 
-set(PROJECT_SOURCES
-        main.cpp
-        mainwindow.cpp
-        mainwindow.h
-        mainwindow.ui
+# Enable automatic Qt features
+set(CMAKE_AUTOMOC ON)
+set(CMAKE_AUTOUIC ON)
+set(CMAKE_AUTORCC ON)
+
+# ---------------- Application Source Files ----------------
+set(APP_SOURCES
+    main.cpp
+    mainwindow.cpp
+    mainwindow.h
+    mainwindow.ui
+    Board.cpp
+    Board.h
+    AIPlayer.cpp
+    AIPlayer.h
+    LoginDialog.cpp
+    LoginDialog.h
+    resources.qrc
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(Project
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-        Board.h
-        AIPlayer.h
+# ---------------- Main Application Target ----------------
+qt_add_executable(TicTacToeApp
+    MANUAL_FINALIZATION
+    ${APP_SOURCES}
+)
 
-        AIPlayer.cpp
-        Board.cpp
-        LoginDialog.cpp
-        LoginDialog.h
+target_link_libraries(TicTacToeApp PRIVATE Qt6::Widgets)
 
-    )
-# Define target properties for Android with Qt 6 as:
-#    set_property(TARGET Project APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
-#                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
-# For more information, see https://doc.qt.io/qt-6/qt-add-executable.html#target-creation
-else()
-    if(ANDROID)
-        add_library(Project SHARED
-            ${PROJECT_SOURCES}
-        )
-# Define properties for Android with Qt 5 after find_package() calls as:
-#    set(ANDROID_PACKAGE_SOURCE_DIR "${CMAKE_CURRENT_SOURCE_DIR}/android")
-    else()
-        add_executable(Project
-            ${PROJECT_SOURCES}
-        )
-    endif()
-endif()
-
-target_link_libraries(Project PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.example.Project)
-endif()
-set_target_properties(Project PROPERTIES
-    ${BUNDLE_ID_OPTION}
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+set_target_properties(TicTacToeApp PROPERTIES
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
+    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.TicTacToe
+    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
+    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
 )
 
-include(GNUInstallDirs)
-install(TARGETS Project
+install(TARGETS TicTacToeApp
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(Project)
-endif()
+qt_finalize_executable(TicTacToeApp)
+
+# ---------------- GoogleTest Section (Manual Clone) ----------------
+
+enable_testing()
+
+# Add manually cloned googletest folder
+# It must contain CMakeLists.txt inside
+add_subdirectory(googletest)
+
+# ---------------- Test Sources ----------------
+add_executable(TicTacToeTests
+    test_board.cpp
+    test_ai.cpp
+    Board.cpp
+    Board.h
+    AIPlayer.cpp
+    AIPlayer.h
+)
+
+target_include_directories(TicTacToeTests PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+
+target_link_libraries(TicTacToeTests
+    gtest
+    gtest_main
+)
+
+add_test(NAME TicTacToeTests COMMAND TicTacToeTests)
+
+# Optional: make tests depend on the main app (not required)
+# add_dependencies(TicTacToeTests TicTacToeApp)

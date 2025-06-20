@@ -1,0 +1,12 @@
+gtest_main_autogen/timestamp: \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/BasicConfigVersion-AnyNewerVersion.cmake.in \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/CMakePackageConfigHelpers.cmake \
+	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/WriteBasicConfigVersionFile.cmake \
+	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
+	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/googletest/googletest/CMakeLists.txt \
+	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/googletest/googletest/cmake/Config.cmake.in \
+	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/googletest/googletest/cmake/gtest.pc.in \
+	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/googletest/googletest/cmake/gtest_main.pc.in \
+	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/googletest/googletest/cmake/internal_utils.cmake \
+	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/googletest/googletest/src/gtest_main.cc \
+	C:/Qt/Tools/CMake_64/bin/cmake.exe

@@ -1,0 +1,27 @@
+{
+	"backtrace" : 0,
+	"backtraceGraph" : 
+	{
+		"commands" : [],
+		"files" : 
+		[
+			"googletest/googletest/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			}
+		]
+	},
+	"id" : "gtest_autogen_timestamp_deps::@f95b5c00bd49b3b4698d",
+	"isGeneratorProvided" : true,
+	"name" : "gtest_autogen_timestamp_deps",
+	"paths" : 
+	{
+		"build" : "googletest/googletest",
+		"source" : "googletest/googletest"
+	},
+	"sources" : [],
+	"type" : "UTILITY"
+}
