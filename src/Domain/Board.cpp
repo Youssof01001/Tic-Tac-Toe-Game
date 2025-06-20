@@ -55,18 +55,18 @@ bool Board::checkTie() const {
 
 void Board::displayBoard() const {
     for (int i = 0; i < 3; ++i) {
-        std::cout << " ";
+        cout << " ";
         for (int j = 0; j < 3; ++j) {
-            std::cout << board[i][j];
-            if (j < 2) std::cout << " | ";
+            cout << board[i][j];
+            if (j < 2) cout << " | ";
         }
-        if (i < 2) std::cout << "\n-----------\n";
+        if (i < 2) cout << "\n-----------\n";
     }
-    std::cout << std::endl;
+    cout << endl;
 }
 
-std::vector<std::pair<int, int>> Board::getAvailableMoves() const {
-    std::vector<std::pair<int, int>> moves;
+vector<pair<int, int>> Board::getAvailableMoves() const {
+    vector<pair<int, int>> moves;
     for (int i = 0; i < 3; ++i)
         for (int j = 0; j < 3; ++j)
             if (board[i][j] == ' ')
