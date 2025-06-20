@@ -31,8 +31,7 @@ set(APP_SOURCES
 )
 
 # ---------------- Main Application Target ----------------
-qt_add_executable(TicTacToeApp
-    MANUAL_FINALIZATION
+add_executable(TicTacToeApp
     ${APP_SOURCES}
 )
 
@@ -52,7 +51,7 @@ install(TARGETS TicTacToeApp
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-qt_finalize_executable(TicTacToeApp)
+# qt_finalize_executable(TicTacToeApp) - Qt6 only line -
 
 # ---------------- GoogleTest Section (Manual Clone) ----------------
 
