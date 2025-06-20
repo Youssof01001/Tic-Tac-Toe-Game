@@ -55,11 +55,16 @@ install(TARGETS TicTacToeApp
 
 # ---------------- GoogleTest Section (Manual Clone) ----------------
 
+# Enable testing
+include(CTest)
 enable_testing()
 
-# Add manually cloned googletest folder
-# It must contain CMakeLists.txt inside
-add_subdirectory(googletest)
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/refs/tags/release-1.14.0.zip
+)
+FetchContent_MakeAvailable(googletest)
 
 # ---------------- Test Sources ----------------
 add_executable(TicTacToeTests
