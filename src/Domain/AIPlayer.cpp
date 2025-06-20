@@ -1,4 +1,4 @@
-#include "AIPlayer.h"
+#include "../../includes/AIPlayer.h"
 #include <limits>
 
 std::pair<int, int> AIPlayer::getBestMove(Board board, char aiPlayer, char humanPlayer) {

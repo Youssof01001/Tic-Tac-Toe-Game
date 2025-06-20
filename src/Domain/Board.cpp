@@ -1,4 +1,4 @@
-#include "Board.h"
+#include "../../includes/Board.h"
 #include <iostream>
 
 Board::Board() {

@@ -1,5 +1,5 @@
 #include <gtest/gtest.h>
-#include "Board.h"
+#include "../includes/Board.h"
 
 TEST(BoardTest, InitiallyEmptyBoard) {
     Board board;

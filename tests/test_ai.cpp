@@ -1,6 +1,6 @@
 #include <gtest/gtest.h>
-#include "AIPlayer.h"
-#include "Board.h"
+#include "../includes/AIPlayer.h"
+#include "../includes/Board.h"
 
 //
 // Test 1: Makes a valid move on an empty board

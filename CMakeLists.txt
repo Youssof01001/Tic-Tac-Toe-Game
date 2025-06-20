@@ -17,16 +17,16 @@ set(CMAKE_AUTORCC ON)
 
 # ---------------- Application Source Files ----------------
 set(APP_SOURCES
-    main.cpp
-    mainwindow.cpp
-    mainwindow.h
-    mainwindow.ui
-    Board.cpp
-    Board.h
-    AIPlayer.cpp
-    AIPlayer.h
-    LoginDialog.cpp
-    LoginDialog.h
+    src/main.cpp
+    src/APP/mainwindow.cpp
+    includes/mainwindow.h
+    src/GUI/mainwindow.ui
+    src/Domain/Board.cpp
+    includes/Board.h
+    src/Domain/AIPlayer.cpp
+    includes/AIPlayer.h
+    src/APP/LoginDialog.cpp
+    includes/LoginDialog.h
     resources.qrc
 )
 
@@ -68,12 +68,12 @@ FetchContent_MakeAvailable(googletest)
 
 # ---------------- Test Sources ----------------
 add_executable(TicTacToeTests
-    test_board.cpp
-    test_ai.cpp
-    Board.cpp
-    Board.h
-    AIPlayer.cpp
-    AIPlayer.h
+    tests/test_board.cpp
+    tests/test_ai.cpp
+    src/Domain/Board.cpp
+    includes/Board.h
+    src/Domain/AIPlayer.cpp
+    includes/AIPlayer.h
 )
 
 target_include_directories(TicTacToeTests PRIVATE

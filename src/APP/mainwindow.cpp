@@ -1,5 +1,5 @@
-#include "mainwindow.h"
-#include "LoginDialog.h"
+#include "../../includes/mainwindow.h"
+#include "../../includes/LoginDialog.h"
 #include <QApplication>
 #include <QWidget>
 #include <QVBoxLayout>

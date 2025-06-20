@@ -1,4 +1,4 @@
-#include "LoginDialog.h"
+#include "../../includes/LoginDialog.h"
 #include <QMessageBox>
 #include <QCryptographicHash>
 #include <QJsonDocument>
