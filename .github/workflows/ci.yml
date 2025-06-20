@@ -14,15 +14,15 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install dependencies (Qt and CMake)
+    - name: Install Qt5 and CMake
       run: |
         sudo apt update
         sudo apt install -y qtbase5-dev qtbase5-dev-tools cmake g++
 
     - name: Configure project
-      run: cmake -S . -B build
+      run: cmake -S . -B build -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
 
-    - name: Build project
+    - name: Build
       run: cmake --build build
 
     - name: Run tests

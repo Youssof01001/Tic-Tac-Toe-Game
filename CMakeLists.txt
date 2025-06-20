@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # ---------------- Qt Configuration ----------------
-find_package(Qt6 REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 
 # Enable automatic Qt features
 set(CMAKE_AUTOMOC ON)
@@ -35,7 +36,7 @@ qt_add_executable(TicTacToeApp
     ${APP_SOURCES}
 )
 
-target_link_libraries(TicTacToeApp PRIVATE Qt6::Widgets)
+target_link_libraries(TicTacToeApp PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
 set_target_properties(TicTacToeApp PROPERTIES
     MACOSX_BUNDLE TRUE
