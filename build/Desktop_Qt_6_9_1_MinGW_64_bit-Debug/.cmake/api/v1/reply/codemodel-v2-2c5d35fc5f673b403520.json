@@ -1,0 +1,78 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"jsonFile" : "directory-.-Debug-d0094a50bb2071803777.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "TicTacToe",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "TicTacToe::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TicTacToe-Debug-f5f9d470f93febc3e3ac.json",
+					"name" : "TicTacToe",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TicTacToe_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TicTacToe_autogen-Debug-e62039f317e66c416377.json",
+					"name" : "TicTacToe_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "TicTacToe_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-TicTacToe_autogen_timestamp_deps-Debug-24d77af3781e2054296f.json",
+					"name" : "TicTacToe_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug",
+		"source" : "D:/Z'/Github/Tic-Tac-Toe-Game/src/Project"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 7
+	}
+}

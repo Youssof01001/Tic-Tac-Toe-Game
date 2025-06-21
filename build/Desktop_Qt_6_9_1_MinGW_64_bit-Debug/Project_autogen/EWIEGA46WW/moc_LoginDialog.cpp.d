@@ -1,5 +1,5 @@
-C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/EWIEGA46WW/moc_LoginDialog.cpp: C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/LoginDialog.h \
-  C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/moc_predefs.h \
+D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/EWIEGA46WW/moc_LoginDialog.cpp: D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/LoginDialog.h \
+  D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/moc_predefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20iterator.h \

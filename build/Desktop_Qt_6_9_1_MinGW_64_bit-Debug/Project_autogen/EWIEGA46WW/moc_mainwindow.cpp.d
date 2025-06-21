@@ -1,5 +1,5 @@
-C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/EWIEGA46WW/moc_mainwindow.cpp: C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/mainwindow.h \
-  C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/moc_predefs.h \
+D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/EWIEGA46WW/moc_mainwindow.cpp: D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/mainwindow.h \
+  D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/moc_predefs.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q17memory.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20functional.h \
   C:/Qt/6.9.1/mingw_64/include/QtCore/q20iterator.h \
@@ -420,6 +420,6 @@ C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_b
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
   C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-  C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/AIPlayer.h \
-  C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/Board.h \
-  C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/LoginDialog.h
+  D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/AIPlayer.h \
+  D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/Board.h \
+  D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/LoginDialog.h

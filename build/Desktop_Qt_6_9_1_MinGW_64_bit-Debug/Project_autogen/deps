@@ -397,9 +397,6 @@ Project_autogen/timestamp: \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/CMakeCommonCompilerMacros.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU-CXX.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/Compiler/GNU.cmake \
-	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/ExternalProject/shared_internal_commands.cmake \
-	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FetchContent.cmake \
-	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FetchContent/CMakeLists.cmake.in \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindPackageHandleStandardArgs.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindPackageMessage.cmake \
 	C:/Qt/Tools/CMake_64/share/cmake-3.30/Modules/FindThreads.cmake \
@@ -626,20 +623,20 @@ Project_autogen/timestamp: \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/time.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/vadefs.h \
 	C:/Qt/Tools/mingw1310_64/x86_64-w64-mingw32/include/wchar.h \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/AIPlayer.cpp \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/AIPlayer.h \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/Board.cpp \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/Board.h \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/CMakeLists.txt \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/LoginDialog.cpp \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/LoginDialog.h \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/moc_predefs.h \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/main.cpp \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/mainwindow.cpp \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/mainwindow.h \
-	C:/Users/youssef/Desktop/Test/Tic-Tac-Toe-Game/resources.qrc \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/AIPlayer.cpp \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/AIPlayer.h \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/Board.cpp \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/Board.h \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/CMakeLists.txt \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/LoginDialog.cpp \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/LoginDialog.h \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeCXXCompiler.cmake \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeRCCompiler.cmake \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/CMakeFiles/3.30.5/CMakeSystem.cmake \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/build/Desktop_Qt_6_9_1_MinGW_64_bit-Debug/Project_autogen/moc_predefs.h \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/main.cpp \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/mainwindow.cpp \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/mainwindow.h \
+	D:/Z'/Github/Tic-Tac-Toe-Game/src/Project/resources.qrc \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

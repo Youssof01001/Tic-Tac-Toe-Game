@@ -175,6 +175,36 @@
             ],
             "opponent": "Ziad",
             "winner": "X"
+        },
+        {
+            "mode": "PvP",
+            "moves": [
+                "X00",
+                "O11",
+                "X22",
+                "O02",
+                "X20",
+                "O10",
+                "X12",
+                "O21",
+                "X01"
+            ],
+            "opponent": "Ziad",
+            "winner": "Tie"
+        },
+        {
+            "mode": "PvP",
+            "moves": [
+                "X00",
+                "O11",
+                "X22",
+                "O02",
+                "X20",
+                "O10",
+                "X21"
+            ],
+            "opponent": "Ziad",
+            "winner": "X"
         }
     ],
     "Eslam": [
@@ -712,6 +742,36 @@
                 "X10"
             ],
             "winner": "Tie"
+        },
+        {
+            "mode": "PvP",
+            "moves": [
+                "X00",
+                "O11",
+                "X22",
+                "O02",
+                "X20",
+                "O10",
+                "X12",
+                "O21",
+                "X01"
+            ],
+            "opponent": "Ammar",
+            "winner": "Tie"
+        },
+        {
+            "mode": "PvP",
+            "moves": [
+                "X00",
+                "O11",
+                "X22",
+                "O02",
+                "X20",
+                "O10",
+                "X21"
+            ],
+            "opponent": "Ammar",
+            "winner": "X"
         }
     ]
 }
