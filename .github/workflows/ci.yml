@@ -1,4 +1,4 @@
-name: Build and Test
+name: Build & Test (Qt + Google Test)
 
 on:
   push:
@@ -7,23 +7,27 @@ on:
     branches: [ main ]
 
 jobs:
-  build:
+  build-and-test:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install Qt5 and CMake
+    - name: Install dependencies (Qt, CMake, Ninja)
       run: |
-        sudo apt update
-        sudo apt install -y qtbase5-dev qtbase5-dev-tools cmake g++
+        sudo apt-get update
+        sudo apt-get install -y qtbase5-dev qt5-qmake cmake ninja-build g++
 
-    - name: Configure project
-      run: cmake -S . -B build -DCMAKE_PREFIX_PATH=/usr/lib/x86_64-linux-gnu/cmake/Qt5
+    - name: Configure CMake
+      run: |
+        cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
 
-    - name: Build
-      run: cmake --build build
+    - name: Build project
+      run: |
+        cmake --build build
 
     - name: Run tests
-      run: cd build && ctest --output-on-failure
+      run: |
+        cd build
+        ctest --output-on-failure
