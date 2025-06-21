@@ -11,26 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
+    - name: ✅ Checkout repository
       uses: actions/checkout@v3
 
-    - - name: Install Qt 6.6.x (base only)
-        uses: jurplel/install-qt-action@v3
-        with:
-        version: '6.6.*'
+    - name: 📦 Install Qt 6.6
+      uses: jurplel/install-qt-action@v3
+      with:
+        version: '6.6.3'
 
+    - name: 🛠️ Install Ninja (build system)
+      run: sudo apt-get update && sudo apt-get install -y ninja-build
 
-    - name: Install build tools
-      run: sudo apt-get install ninja-build
-
-    - name: Configure project with CMake
+    - name: ⚙️ Configure project with CMake
       run: |
         cmake -S . -B build -G Ninja -DCMAKE_BUILD_TYPE=Debug
 
-    - name: Build project
+    - name: 🧱 Build the project
       run: cmake --build build
 
-    - name: Run tests
+    - name: 🧪 Run Google Tests
       run: |
         cd build
         ctest --output-on-failure
