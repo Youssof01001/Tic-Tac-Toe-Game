@@ -14,11 +14,11 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v3
 
-    - name: Install Qt 6.6.x
-      uses: jurplel/install-qt-action@v3
-      with:
+    - - name: Install Qt 6.6.x (base only)
+        uses: jurplel/install-qt-action@v3
+        with:
         version: '6.6.*'
-        modules: 'qtbase qttools'
+
 
     - name: Install build tools
       run: sudo apt-get install ninja-build
