@@ -28,13 +28,6 @@ std::pair<int, int> AIPlayer::getMove(Board* board)
 
 std::pair<int, int> AIPlayer::getMediumMove(Board* board)
 {
-    // Adjusted Medium AI strategy for excellent players:
-    // 1. 90% chance to block immediate wins (10% miss critical blocks!)
-    // 2. Always take immediate wins (can't miss obvious wins)
-    // 3. 70% of the time play optimally (reduced from 85%)
-    // 4. 30% of the time make suboptimal moves (increased from 15%)
-    // 5. Occasionally make "human-like" mistakes
-
     auto availableMoves = board->getAvailableMoves();
     if (availableMoves.empty()) {
         return {-1, -1};
@@ -123,9 +116,6 @@ std::pair<int, int> AIPlayer::getSuboptimalMove(Board* board)
     return moveScores[dist(rng)].first;
 }
 
-
-
-
 std::pair<int, int> AIPlayer::getBestMove(Board* board)
 {
     int bestScore = INT_MIN;
@@ -137,9 +127,29 @@ std::pair<int, int> AIPlayer::getBestMove(Board* board)
         return bestMove;
     }
 
+    // First, check for immediate winning move
     for (const auto& move : availableMoves) {
         Board testBoard = *board;
+        if (testBoard.makeMove(move.first, move.second, 'O')) {
+            if (testBoard.checkWin('O')) {
+                return move; // Take the winning move immediately
+            }
+        }
+    }
 
+    // Second, check if we need to block opponent's winning move
+    for (const auto& move : availableMoves) {
+        Board testBoard = *board;
+        if (testBoard.makeMove(move.first, move.second, 'X')) {
+            if (testBoard.checkWin('X')) {
+                return move; // Block the opponent's winning move
+            }
+        }
+    }
+
+    // If no immediate win/block needed, use minimax
+    for (const auto& move : availableMoves) {
+        Board testBoard = *board;
         if (testBoard.makeMove(move.first, move.second, 'O')) {
             int score = minimax(testBoard, 0, false, INT_MIN, INT_MAX);
 
@@ -165,10 +175,15 @@ std::pair<int, int> AIPlayer::getRandomMove(Board* board)
 
 int AIPlayer::minimax(Board board, int depth, bool isMaximizing, int alpha, int beta)
 {
-    int boardScore = evaluateBoard(board, depth);
-
-    if (boardScore == 10 || boardScore == -10 || board.checkTie()) {
-        return boardScore - depth;
+    // Check terminal states first
+    if (board.checkWin('O')) {
+        return 10 - depth; // AI wins (good for AI)
+    }
+    if (board.checkWin('X')) {
+        return depth - 10; // Human wins (bad for AI)
+    }
+    if (board.checkTie()) {
+        return 0; // Tie
     }
 
     // Adjust depth based on difficulty
@@ -187,10 +202,11 @@ int AIPlayer::minimax(Board board, int depth, bool isMaximizing, int alpha, int 
     }
 
     if (depth >= maxDepth) {
-        return boardScore;
+        return evaluateBoard(board, depth);
     }
 
     if (isMaximizing) {
+        // AI's turn (maximizing player)
         int maxEval = INT_MIN;
         auto moves = board.getAvailableMoves();
 
@@ -202,12 +218,13 @@ int AIPlayer::minimax(Board board, int depth, bool isMaximizing, int alpha, int 
                 alpha = std::max(alpha, eval);
 
                 if (beta <= alpha) {
-                    break;
+                    break; // Alpha-beta pruning
                 }
             }
         }
         return maxEval;
     } else {
+        // Human's turn (minimizing player)
         int minEval = INT_MAX;
         auto moves = board.getAvailableMoves();
 
@@ -219,7 +236,7 @@ int AIPlayer::minimax(Board board, int depth, bool isMaximizing, int alpha, int 
                 beta = std::min(beta, eval);
 
                 if (beta <= alpha) {
-                    break;
+                    break; // Alpha-beta pruning
                 }
             }
         }
@@ -230,14 +247,15 @@ int AIPlayer::minimax(Board board, int depth, bool isMaximizing, int alpha, int 
 int AIPlayer::evaluateBoard(const Board& board, int depth)
 {
     if (board.checkWin('O')) {
-        return 10 - depth;
+        return 10 - depth; // AI wins
     }
     if (board.checkWin('X')) {
-        return depth - 10;
+        return depth - 10; // Human wins
     }
     if (board.checkTie()) {
-        return 0;
+        return 0; // Tie
     }
 
+    // For non-terminal positions, return neutral score
     return 0;
 }

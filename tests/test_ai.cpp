@@ -25,28 +25,13 @@ TEST(AIPlayerTest, HardMode_ChoosesWinningMove) {
 TEST(AIPlayerTest, HardMode_BlocksOpponentWin) {
     Board board;
     setBoardState(board, {
-                             {1, 0, 'X'},
-                             {1, 1, 'X'}
+                             {1, 0, 'X'}, {1, 1, 'X'}  // X could win at (1,2)
                          });
 
     AIPlayer ai(AIPlayer::HARD);
-    auto aiMove = ai.getMove(&board);
+    auto move = ai.getMove(&board);
 
-    // AI makes the move
-    board.makeMove(aiMove.first, aiMove.second, 'O');
-
-    // Now simulate: can X win next?
-    bool xCanWin = false;
-    for (const auto& move : board.getAvailableMoves()) {
-        Board test = board;
-        test.makeMove(move.first, move.second, 'X');
-        if (test.checkWin('X')) {
-            xCanWin = true;
-            break;
-        }
-    }
-
-    EXPECT_FALSE(xCanWin) << "AI did not block X from winning next turn!";
+    EXPECT_EQ(move, std::make_pair(1, 2));
 }
 
 // MEDIUM mode sometimes blocks and sometimes makes mistakes
