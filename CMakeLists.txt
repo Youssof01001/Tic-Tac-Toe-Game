@@ -1,91 +1,82 @@
-cmake_minimum_required(VERSION 3.16 FATAL_ERROR)
+cmake_minimum_required(VERSION 3.16)
+project(TicTacToe VERSION 2.0)
 
-project(TicTacToe VERSION 0.1 LANGUAGES CXX)
-
-# ---------------- Global C++ Settings ----------------
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# ---------------- Qt Configuration ----------------
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt6 REQUIRED COMPONENTS Core Widgets)
 
-# Enable automatic Qt features
+# Enable automatic processing
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTORCC ON)
+set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# ---------------- Application Source Files ----------------
-set(APP_SOURCES
+# Define source and header files separately
+set(SOURCES
     src/main.cpp
+
     src/APP/mainwindow.cpp
-    includes/mainwindow.h
-    src/GUI/mainwindow.ui
     src/Domain/Board.cpp
-    includes/Board.h
     src/Domain/AIPlayer.cpp
+)
+
+set(HEADERS
+
+    includes/mainwindow.h
+    includes/Board.h
     includes/AIPlayer.h
-    src/APP/LoginDialog.cpp
-    includes/LoginDialog.h
-    resources.qrc
 )
 
-# ---------------- Main Application Target ----------------
-add_executable(TicTacToeApp
-    ${APP_SOURCES}
-)
+# Create executable with both sources and headers
+add_executable(TicTacToe ${SOURCES} ${HEADERS})
 
-target_link_libraries(TicTacToeApp PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+# Link libraries
+target_link_libraries(TicTacToe PRIVATE Qt6::Core Qt6::Widgets)
 
-set_target_properties(TicTacToeApp PROPERTIES
-    MACOSX_BUNDLE TRUE
+# Explicitly wrap headers with MOC (backup method)
+qt6_wrap_cpp(MOC_SOURCES ${HEADERS})
+target_sources(TicTacToe PRIVATE ${MOC_SOURCES})
+
+# Set properties
+set_target_properties(TicTacToe PROPERTIES
     WIN32_EXECUTABLE TRUE
-    MACOSX_BUNDLE_GUI_IDENTIFIER com.example.TicTacToe
-    MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
-    MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
+    MACOSX_BUNDLE TRUE
 )
 
-install(TARGETS TicTacToeApp
-    BUNDLE DESTINATION .
-    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
-    RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
-)
+# ---------------- Google Test Section ----------------
 
-# qt_finalize_executable(TicTacToeApp) - Qt6 only line -
-
-# ---------------- GoogleTest Section (Manual Clone) ----------------
-
-# Enable testing
 include(CTest)
 enable_testing()
 
 include(FetchContent)
+
 FetchContent_Declare(
   googletest
   URL https://github.com/google/googletest/archive/refs/tags/v1.14.0.zip
+  DOWNLOAD_EXTRACT_TIMESTAMP TRUE
 )
+
 FetchContent_MakeAvailable(googletest)
 
-# ---------------- Test Sources ----------------
+# Create test executable
 add_executable(TicTacToeTests
-    tests/test_board.cpp
     tests/test_ai.cpp
-    src/Domain/Board.cpp
-    includes/Board.h
+    tests/test_board.cpp
     src/Domain/AIPlayer.cpp
     includes/AIPlayer.h
+    src/Domain/Board.cpp
+    includes/Board.h
 )
 
-target_include_directories(TicTacToeTests PRIVATE
-    ${CMAKE_CURRENT_SOURCE_DIR}
-)
-
+# Link GTest
 target_link_libraries(TicTacToeTests
     gtest
     gtest_main
 )
 
-add_test(NAME TicTacToeTests COMMAND TicTacToeTests)
+# Optional: Add Qt includes if needed
+target_include_directories(TicTacToeTests PRIVATE ${CMAKE_CURRENT_SOURCE_DIR})
 
-# Optional: make tests depend on the main app (not required)
-# add_dependencies(TicTacToeTests TicTacToeApp)
+# Register tests
+add_test(NAME TicTacToeTests COMMAND TicTacToeTests)
